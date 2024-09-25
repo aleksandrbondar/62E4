@@ -1,0 +1,21 @@
+doctype html
+html(lang="en", data-theme=`${theme}`)
+  head
+    title Express and Pug Example
+    link(rel="stylesheet", href="/css/style.css")
+    link(rel="shortcut icon", href="/favicon.ico", type="image/x-icon")
+
+  body
+    button#theme-toggle Switch theme
+    div.container
+      h1.heading Hello from PUG!
+      p
+        a(href=`/`)= 'back to main page'
+      ul.user-list
+        each user in users
+          li.user-item
+            p.user-name
+              a(href=`/users/${user.id}`)= user.name
+            p.user-email= user.email
+            p.user-phone= user.phone
+    script(src="/js/script.js")

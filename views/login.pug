@@ -1,0 +1,26 @@
+doctype html
+html(lang="en", data-theme=`${theme}`)
+  head
+    title Log In
+    link(rel="stylesheet", href="/css/style.css")
+    link(rel="shortcut icon", href="/favicon.ico", type="image/x-icon")
+
+  body
+    button#theme-toggle Switch theme
+    div.container
+      a(href="/") Main page
+      h1 Log In
+      form(action="http://localhost:3000/login", method="POST", style="display: flex; flex-direction: column; gap: 1rem; max-width: 300px;")
+        label(for="username") Enter your username
+        input#username(type="text", name="username", placeholder="username...", autocomplete="off", required)
+
+        label(for="password") Enter your password
+        input#password(type="password", name="password", placeholder="password...", autocomplete="off", required)
+
+        input(type="submit", value="Submit")
+      if error
+        div
+          p(style="color: red")= error
+      if isNeedToReg
+        a(href="http://localhost:3000/registration") Registration
+    script(src="/js/script.js")
